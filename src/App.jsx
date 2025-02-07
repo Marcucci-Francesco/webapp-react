@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage'
 import FilmDetails from './pages/FilmDetails'
 import NotFound from './pages/NotFound'
 import { GlobalProvider } from "./context/GlobalContext"
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
+
 
 const App = () => {
   return (

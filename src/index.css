@@ -3,3 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.dm-sans {
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+/* HEADER */
+
+header {
+  min-height: 80px;
+
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  h1 {
+    background: linear-gradient(90deg, #FFFF, #00D4FF);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+}
