@@ -32,3 +32,40 @@ header {
   }
 
 }
+
+.card {
+  width: 400px;
+  height: 670px;
+
+  img {
+    width: 400px;
+    height: 550px;
+    object-fit: cover;
+  }
+}
+
+.card-fm {
+  width: 400px;
+  height: 500px;
+  border: 1px solid black;
+
+  img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+  }
+}
+
+.card-details {
+  width: 800px;
+  height: 500px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+
+
+.card-reviews {
+  width: 600px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}

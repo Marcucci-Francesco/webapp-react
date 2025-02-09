@@ -1,14 +1,30 @@
-import { createContext, useContext, useState } from "react"
+import { useContext, useState, createContext, useEffect } from "react"
 import axios from "axios"
 
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
 
+  const [moviesList, setMoviesList] = useState([]);
+
+  const apiUrl = import.meta.env.VITE_FILM_API_URL;
+
+  const fetchMovies = () => {
+    axios.get(apiUrl)
+      .then(res => {
+        setMoviesList(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
 
 
-  const value = {}
+  const value = {
+    fetchMovies,
+    moviesList,
+  }
 
 
   return (
@@ -18,6 +34,6 @@ const GlobalProvider = ({ children }) => {
   )
 }
 
-const useGlobalContext = () => { useContext(GlobalContext) };
+const useGlobalContext = () => useContext(GlobalContext);
 
 export { GlobalProvider, useGlobalContext }

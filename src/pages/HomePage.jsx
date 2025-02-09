@@ -1,9 +1,23 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useGlobalContext } from "../context/GlobalContext";
+import Card from "../Components/Card";
 
 const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+  const { moviesList, fetchMovies } = useGlobalContext();
 
-export default HomePage
+  useEffect(() => {
+    fetchMovies();
+  }, [])
+
+  return (
+    <div className="container my-5">
+      <div className="row gap-4">
+        {moviesList.map(movie => (
+          <Card key={movie.id} movies={movie} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
