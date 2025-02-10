@@ -13,7 +13,7 @@ const StarRating = ({ vote }) => {
   }
 
   return (
-    <div className="text-warning mx-2">{star()}</div>
+    <div className="text-warning ">{star()}</div>
   )
 }
 

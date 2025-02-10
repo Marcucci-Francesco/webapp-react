@@ -41,7 +41,9 @@ const FilmDetails = () => {
           <div className="col-6 my-4 card-details overflow-auto">
             <div className="card-body mx-4">
               <div className="card-title fs-1">{moviesDetails?.title}</div>
-              <StarRating vote={moviesDetails?.average_vote} />
+              <div className="mb-2">
+                <StarRating vote={moviesDetails?.average_vote} />
+              </div>
               <div className="card-text"><strong>Director:</strong> {moviesDetails?.director}</div>
               <div className="card-text"><strong>Genre:</strong> {moviesDetails?.genre}</div>
               <div className="card-text"><strong>Release year:</strong> {moviesDetails?.release_year}</div>
@@ -52,7 +54,9 @@ const FilmDetails = () => {
               {moviesDetails?.reviews?.length > 0 ? (moviesDetails?.reviews.map(review => (
                 <div key={review.id} className="card-body card-reviews my-4">
                   <div className="card-title mx-2 fw-bolder">{review.name}</div>
-                  <StarRating vote={review.vote} />
+                  <div className="mx-2">
+                    <StarRating vote={review.vote} />
+                  </div>
                   <div className="card-text mx-2">{review.text}</div>
                 </div>
               ))) : (
