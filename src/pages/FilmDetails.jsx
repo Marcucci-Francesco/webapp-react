@@ -61,6 +61,7 @@ const FilmDetails = () => {
         </div>
       </div>
       <Link className="btn btn-primary" to={'/'}>HomePage</Link>
+      <Link className="btn btn-primary mx-4" to={`/dettagli-film/${id}/reviews`}>New Review</Link>
     </div>
   )
 }

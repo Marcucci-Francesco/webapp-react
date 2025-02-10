@@ -69,3 +69,9 @@ header {
   border: 1px solid black;
   border-radius: 10px;
 }
+
+.card-form {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
