@@ -25,17 +25,24 @@ header {
     border-radius: 50%;
   }
 
-  h1 {
+  span {
     background: linear-gradient(90deg, #FFFF, #00D4FF);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
+  .return {
+    background: linear-gradient(90deg, #00D4FF, #FFFF);
+  }
+
 }
+
+/* MAIN */
 
 .card {
   width: 400px;
   height: 670px;
+  background-color: white;
 
   img {
     width: 400px;
@@ -59,8 +66,9 @@ header {
 .card-details {
   width: 800px;
   height: 500px;
-  border: 1px solid lightgray;
+  border: 1px solid black;
   border-radius: 20px;
+  background-color: white;
 }
 
 
@@ -72,6 +80,34 @@ header {
 
 .card-form {
   width: 100%;
-  border: 1px solid lightgray;
+  border: 1px solid black;
   border-radius: 20px;
+  background-color: white;
+}
+
+.cover {
+  min-height: 400px;
+  background-image: url(./assets/Copertina.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+.home-bg {
+  background-color: rgba(29, 29, 29, 0.859);
+}
+
+
+.details {
+  background-color: lightgray;
+}
+
+/* FOOTER */
+
+footer {
+  min-height: 60px;
 }

@@ -57,53 +57,56 @@ const Form = () => {
   }
 
   return (
-    <div className="container d-flex flex-wrap justify-content-center">
-      <div className="card-form d-block my-5 p-4">
-        <h1 className="text-center">Add new review</h1>
-        <div className="card-body">
-          {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          <form action="#" onSubmit={handlerSubmit}>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                className="form-control my-3"
-                placeholder="Insert your name"
-                value={formData.name}
-                onChange={setValue} />
-            </div>
-            <div className="form-group">
-              <label>Text</label>
-              <textarea
-                type="text"
-                name="text"
-                className="form-control my-3"
-                placeholder="Insert text"
-                value={formData.text}
-                onChange={setValue} />
-            </div>
-            <div className="form-group">
-              <label>Vote (1-5)</label>
-              <input
-                type="number"
-                name="vote"
-                min={1}
-                max={5}
-                className="form-control my-3"
-                placeholder="Insert your vote"
-                value={formData.vote}
-                onChange={setValue} />
-            </div>
-            <button className="btn btn-success mt-4" type="submit">Send</button>
-          </form>
+    <main className="details">
+      <div className="container d-flex flex-wrap justify-content-center py-4">
+        <div className="card-form d-block mt-5 p-4">
+          <h1 className="text-center">Add new review</h1>
+          <div className="card-body">
+            {errorMessage && <p className="text-danger">{errorMessage}</p>}
+            <form action="#" onSubmit={handlerSubmit}>
+              <div className="form-group">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control my-3"
+                  placeholder="Insert your name"
+                  value={formData.name}
+                  onChange={setValue} />
+              </div>
+              <div className="form-group">
+                <label>Text</label>
+                <textarea
+                  type="text"
+                  name="text"
+                  className="form-control my-3"
+                  placeholder="Insert text"
+                  value={formData.text}
+                  onChange={setValue} />
+              </div>
+              <div className="form-group">
+                <label>Vote (1-5)</label>
+                <input
+                  type="number"
+                  name="vote"
+                  min={1}
+                  max={5}
+                  className="form-control my-3"
+                  placeholder="Insert your vote"
+                  value={formData.vote}
+                  onChange={setValue} />
+              </div>
+              <button className="btn btn-success mt-4" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+        <div className="py-4">
+          <button className="btn btn-primary mx-4" onClick={() => navigate(-1)}>Go Back</button>
+          <Link className="btn btn-primary" to={'/'}>HomePage</Link>
         </div>
       </div>
-      <div className="">
-        <button className="btn btn-primary mx-4" onClick={() => navigate(-1)}>Go Back</button>
-        <Link className="btn btn-primary" to={'/'}>HomePage</Link>
-      </div>
-    </div>
+
+    </main>
 
   )
 }
