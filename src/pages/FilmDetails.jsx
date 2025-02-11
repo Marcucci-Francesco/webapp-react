@@ -51,7 +51,7 @@ const FilmDetails = () => {
                 <div key={review.id} className="card-body card-reviews my-4">
                   <div className="card-title mx-2 fw-bolder">{review.name}</div>
                   <div className="mx-2">
-                    <StarRating vote={review.vote} />
+                    <StarRating vote={review.vote || 0} />
                   </div>
                   <div className="card-text mx-2">{review.text}</div>
                 </div>
