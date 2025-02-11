@@ -24,7 +24,7 @@ const HomePage = () => {
         <div className="row gap-5 justify-content-around">
           <Swiper
             autoplay={{
-              delay: 3500,
+              delay: 4000,
               disableOnInteraction: false,
             }}
             slidesPerView={3}
