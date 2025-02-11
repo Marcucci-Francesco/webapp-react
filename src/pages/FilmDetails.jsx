@@ -8,16 +8,12 @@ const FilmDetails = () => {
   const [moviesDetails, setMoviesDetails] = useState(null);
   const apiUrlDetails = import.meta.env.VITE_FILM_API_URL;
   const { id } = useParams();
-  console.log(id);
-  console.log(useParams());
 
 
 
-  const fetchMoviesDetails = (id) => {
+  const fetchMoviesDetails = () => {
     axios.get(`${apiUrlDetails}/${id}`)
       .then(res => {
-        console.log(res.data);
-
         setMoviesDetails(res.data);
       })
       .catch(err => {
@@ -26,8 +22,8 @@ const FilmDetails = () => {
   }
 
   useEffect(() => {
-    fetchMoviesDetails(id);
-  }, [id])
+    fetchMoviesDetails();
+  }, [])
 
   return (
     <main className="details">
@@ -42,7 +38,7 @@ const FilmDetails = () => {
             <div className="card-body mx-4">
               <div className="card-title fs-1">{moviesDetails?.title}</div>
               <div className="mb-2">
-                <StarRating vote={moviesDetails?.average_vote} />
+                <StarRating vote={moviesDetails?.average_vote || 0} />
               </div>
               <div className="card-text"><strong>Director:</strong> {moviesDetails?.director}</div>
               <div className="card-text"><strong>Genre:</strong> {moviesDetails?.genre}</div>

@@ -9,7 +9,7 @@ const AddNewMovie = () => {
     title: '',
     director: '',
     genre: '',
-    release_year: '',
+    release_year: 0,
     abstract: '',
     image: null
   }
@@ -17,11 +17,11 @@ const AddNewMovie = () => {
   const initialThumb = '/placeholder.png';
 
   const [formData, setFormData] = useState(initialFormData)
-  console.log(formData);
 
   const [thumb, setThumb] = useState(initialThumb);
   const apiUrl = import.meta.env.VITE_FILM_API_URL;
   const navigate = useNavigate();
+
 
 
 
@@ -38,12 +38,10 @@ const AddNewMovie = () => {
 
   const handlerSubmitMovies = (e) => {
     e.preventDefault();
-    console.log(formData);
-
 
     const dataSendForm = new FormData();
-    console.log(dataSendForm);
 
+    console.log('popolo il FormData');
 
     for (let key in formData) {
       dataSendForm.append(key, formData[key])
@@ -96,7 +94,7 @@ const AddNewMovie = () => {
               <div className="form-group">
                 <label>Release Year</label>
                 <input
-                  type="text"
+                  type="number"
                   name="release_year"
                   className="form-control my-3"
                   placeholder="Insert release year"
