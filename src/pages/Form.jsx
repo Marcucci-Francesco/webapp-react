@@ -96,13 +96,14 @@ const Form = () => {
                   value={formData.vote}
                   onChange={setValue} />
               </div>
-              <button className="btn btn-success mt-4" type="submit">Send</button>
+              <div className="d-flex justify-content-center">
+                <button className="btn btn-success mt-4 d-grid col-4" type="submit">Send</button>
+              </div>
             </form>
           </div>
         </div>
         <div className="py-4">
           <button className="btn btn-primary mx-4" onClick={() => navigate(-1)}>Go Back</button>
-          <Link className="btn btn-primary" to={'/'}>HomePage</Link>
         </div>
       </div>
 

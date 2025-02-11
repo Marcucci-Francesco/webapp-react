@@ -9,6 +9,7 @@ const Header = () => {
         <span className="text-white mx-2 dm-sans mb-0 fs-1">CineVibes</span>
       </div>
       <div className='mx-4'>
+        <Link className='return btn btn-primary text-dark mx-4' to={'/movies/create'}>Add New Movie</Link>
         <Link className='return btn btn-primary text-dark' to={'/'}>Home</Link>
       </div>
     </header>
