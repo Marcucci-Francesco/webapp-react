@@ -7,7 +7,9 @@ const AddNewMovie = () => {
 
   const initialFormData = {
     title: '',
-    author: '',
+    director: '',
+    genre: '',
+    release_year: '',
     abstract: '',
     image: null
   }
@@ -15,6 +17,8 @@ const AddNewMovie = () => {
   const initialThumb = '/placeholder.png';
 
   const [formData, setFormData] = useState(initialFormData)
+  console.log(formData);
+
   const [thumb, setThumb] = useState(initialThumb);
   const apiUrl = import.meta.env.VITE_FILM_API_URL;
   const navigate = useNavigate();
@@ -27,21 +31,26 @@ const AddNewMovie = () => {
     if (name === 'image') {
       setThumb(URL.createObjectURL(e.target.files[0]));
       setFormData(prev => ({ ...prev, image: e.target.files[0] }))
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
-    setFormData(prev => ({ ...prev, [name]: value }));
   }
 
   const handlerSubmitMovies = (e) => {
     e.preventDefault();
+    console.log(formData);
+
 
     const dataSendForm = new FormData();
+    console.log(dataSendForm);
+
 
     for (let key in formData) {
       dataSendForm.append(key, formData[key])
     }
 
     axios.post(apiUrl, dataSendForm, { headers: { 'Content-Type': 'multipart/form-data' } })
-      .then(() => { navigate('/') })
+      .then(() => navigate('/'))
       .catch(err => {
         console.log(err);
       })
