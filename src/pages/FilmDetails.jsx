@@ -46,7 +46,7 @@ const FilmDetails = () => {
               <div className="card-text"><strong>Abstract:</strong> {moviesDetails?.abstract}</div>
             </div>
             <div className="mx-4 my-4">
-              <h4>RECENSIONI</h4>
+              <h4>REVIEWS</h4>
               {moviesDetails?.reviews?.length > 0 ? (moviesDetails?.reviews.map(review => (
                 <div key={review.id} className="card-body card-reviews my-4">
                   <div className="card-title mx-2 fw-bolder">{review.name}</div>
