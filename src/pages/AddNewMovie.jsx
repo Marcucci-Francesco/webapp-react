@@ -41,8 +41,6 @@ const AddNewMovie = () => {
 
     const dataSendForm = new FormData();
 
-    console.log('popolo il FormData');
-
     for (let key in formData) {
       dataSendForm.append(key, formData[key])
     }

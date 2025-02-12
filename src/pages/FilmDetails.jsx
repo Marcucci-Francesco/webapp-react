@@ -33,7 +33,7 @@ const FilmDetails = () => {
     fetchMoviesDetails();
   }, [])
 
-  const deleteMovie = () => {
+  const deleteMovie = (id, cb) => {
     setIsLoading(true)
     axios.delete(`${apiUrlDetails}/${id}`)
       .then(res => cb())
