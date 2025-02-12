@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import { useGlobalContext } from "../context/GlobalContext"
 
 
 const AddNewMovie = () => {
@@ -15,14 +16,13 @@ const AddNewMovie = () => {
   }
 
   const initialThumb = '/placeholder.png';
+  const { setIsLoading } = useGlobalContext();
 
   const [formData, setFormData] = useState(initialFormData)
 
   const [thumb, setThumb] = useState(initialThumb);
   const apiUrl = import.meta.env.VITE_FILM_API_URL;
   const navigate = useNavigate();
-
-
 
 
 
@@ -45,11 +45,15 @@ const AddNewMovie = () => {
       dataSendForm.append(key, formData[key])
     }
 
+    setIsLoading(true)
     axios.post(apiUrl, dataSendForm, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(() => navigate('/'))
       .catch(err => {
         console.log(err);
         navigate('/error')
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }
 

@@ -28,7 +28,8 @@ const GlobalProvider = ({ children }) => {
   const value = {
     fetchMovies,
     moviesList,
-    setIsLoading
+    setIsLoading,
+    isLoading
   }
 
 
