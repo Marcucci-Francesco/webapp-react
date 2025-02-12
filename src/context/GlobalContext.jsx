@@ -6,10 +6,12 @@ const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
 
   const [moviesList, setMoviesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const apiUrl = import.meta.env.VITE_FILM_API_URL;
 
   const fetchMovies = () => {
+    setIsLoading(true)
     axios.get(apiUrl)
       .then(res => {
         setMoviesList(res.data);
@@ -17,13 +19,16 @@ const GlobalProvider = ({ children }) => {
       .catch(err => {
         console.log(err);
       })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
-
 
 
   const value = {
     fetchMovies,
     moviesList,
+    setIsLoading
   }
 
 

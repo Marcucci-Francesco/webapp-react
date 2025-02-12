@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
+import { useGlobalContext } from "../context/GlobalContext";
 import axios from "axios";
 import StarRating from "../Components/StarRating";
 
@@ -8,22 +9,41 @@ const FilmDetails = () => {
   const [moviesDetails, setMoviesDetails] = useState(null);
   const apiUrlDetails = import.meta.env.VITE_FILM_API_URL;
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { setIsLoading } = useGlobalContext();
 
 
 
   const fetchMoviesDetails = () => {
+    setIsLoading(true)
     axios.get(`${apiUrlDetails}/${id}`)
       .then(res => {
         setMoviesDetails(res.data);
       })
       .catch(err => {
         console.log(err);
+        navigate('/error')
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }
 
   useEffect(() => {
     fetchMoviesDetails();
   }, [])
+
+  const deleteMovie = () => {
+    setIsLoading(true)
+    axios.delete(`${apiUrlDetails}/${id}`)
+      .then(res => cb())
+      .catch(err => {
+        console.log(err, 'Errore nella cancellazione del Film');
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }
 
   return (
     <main className="details">
@@ -63,6 +83,11 @@ const FilmDetails = () => {
         </div>
         <Link className="btn btn-primary" to={'/'}>HomePage</Link>
         <Link className="btn btn-primary mx-4" to={`/dettagli-film/${id}/reviews`}>New Review</Link>
+        <button className="btn btn-danger" onClick={() => {
+          if (confirm('Sei sicuro di voler eliminare questo film?')) {
+            deleteMovie(id, () => navigate(-1));
+          }
+        }}>Delete Movie</button>
       </div>
     </main>
   )

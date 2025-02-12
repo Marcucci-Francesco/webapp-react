@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
+import { useGlobalContext } from "../context/GlobalContext"
 
 const Form = () => {
 
@@ -10,6 +10,8 @@ const Form = () => {
     vote: '',
     text: ''
   }
+
+  const { setIsLoading } = useGlobalContext();
   const navigate = useNavigate();
   const { id } = useParams();
   console.log(id);
@@ -38,6 +40,7 @@ const Form = () => {
       return
     }
 
+    setIsLoading(true)
     axios.post(apiUrl, formData, { headers: { 'Content-Type': 'application/json' } })
       .then(res => {
         console.log(res.data);
@@ -47,6 +50,10 @@ const Form = () => {
       })
       .catch(err => {
         console.log(err);
+        navigate('/error')
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }
 
