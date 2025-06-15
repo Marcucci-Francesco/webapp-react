@@ -1,21 +1,34 @@
-# Setup Web App React
-Creare lato client della prima full-stack webapp.
+# CineVibes
+CineVibes è una web app che ci permette di visualizzare una lista di film attraverso uno swiper, cliccando su dettagli verranno mostrati tutti i dati relativi al film scelto, comprese le recensioni le quali possono essere implementate attraverso il form apposito. Possono, inoltre essere aggiunti nuovi film ed eliminati quelli non desiderati o erroneamente caricati.
 
-## Consegna
-1. MILESTONE 1
-- Mettiamo su un nuovo progetto React aiutandoci con Vite
-- Ripuliamo come sempre l’app da file e codice di esempio non necessari
-- Installiamo il necessario: React Router, Axios e Bootstrap (se volete utilizzarlo)
-2. MILESTONE 2
-- Creiamo un layout di base per la nostra applicazione ed impostiamo le rotte per le diverse pagine.
-- Creiamo 2 pagine:
-    - La home, in cui mostreremo la lista dei film
-    - La pagina di dettaglio di un singolo film
-3. MILESTONE 3
-- Configuriamo l’app di backend (repo `webapp-express`) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware **CORS**
-- Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei film
-4. MILESTONE 4
-- In ultimo, effettuiamo una chiamata AJAX dalla pagina di dettaglio per ottenere il dettaglio di un singolo film, comprese le sue recensioni
-## Bonus
-- Stampare le stelline del voto utilizzando un componente dedicato
-- Gestire l’errore 404 in caso di libro non presente reindirizzando alla pagina 404
+## Tecnologie utilizzate per lo sviluppo
+- HTML
+- CSS
+- JAVASCRIPT
+- REACT
+- BOOTSTRAP
+- SWIPER
+- Axios per chiamate API
+## Struttura del progetto
+### Homepage
+Visualizzazione attraverso lo swiper della lista dei film disponibili.
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.46.47.png)
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.47.25.png)
+
+### Pagina di dettaglio
+Visualizzazione dei dettagli del film selezionato con le relative recensioni e link che portano al form di aggiunta di una nuova recensione.
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.47.55.png)
+
+### Form di aggiunta recensioni
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.48.20.png)
+
+### Form di aggiunta nuovo film
+Visualizzazione del form per aggiungere un nuovo film con visualizzazione in anteprima della copertina.
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.48.45.png)
+
+![Homepage](./src/assets/Screenshot%202025-06-15%20alle%2016.49.03.png)
